@@ -67,6 +67,8 @@ int32_t start_rdp(char *ip, int32_t port, unsigned char options, char *miscptr, 
   case 0x00020009:
   case 0x00020014:
   case 0x00020015:
+  case 0xc000006d:
+  case 0xc000006a:
     // login failure
     hydra_completed_pair();
     break;
