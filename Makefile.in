@@ -1,0 +1,8 @@
+XDEFINES= -DHAVE_MYSQL_MYSQL_H -DLIBOPENSSL -DLIBFIREBIRD -DLIBIDN -DHAVE_PR29_H -DHAVE_PCRE -DLIBMYSQLCLIENT -DLIBPOSTGRES -DLIBSVN -DLIBSSH -DHAVE_ZLIB -DHAVE_GCRYPT -DLIBMCACHED -DLIBFREERDP2 -DLIBWINPR2 -DHAVE_MATH_H 
+XLIBS= -lgcrypt -lz -lssl -lfbclient -lidn -lpcre -lmysqlclient -lpq -lsvn_client-1 -lapr-1 -laprutil-1 -lsvn_subr-1 -lssh -lcrypto -lmemcached -lfreerdp2 -lwinpr2
+XLIBPATHS=-L/usr/lib -L/usr/local/lib -L/lib -L/usr/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu
+XIPATHS= -I/usr/include/mysql -I/usr/include -I/usr/include -I/usr/include -I/usr/include/postgresql -I/usr/include -I/usr/include/subversion-1 -I/usr/include/apr-1.0 -I/usr/include/subversion-1 -I/usr/include/libmemcached-1.0 -I/usr/include/freerdp2 -I/usr/include/winpr2
+PREFIX=/usr/local
+XHYDRA_SUPPORT=xhydra
+STRIP=strip
+

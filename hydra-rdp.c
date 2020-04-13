@@ -96,7 +96,7 @@ int32_t start_rdp(char *ip, int32_t port, unsigned char options, char *miscptr, 
       return 1;
     } else if (freerdp_unknown_errors_b4562301 == 2) { // Next IP address
       for (hydra_completed_pair();
-           memcmp(hydra_get_next_pair(), &HYDRA_EXIT, sizeof(HYDRA_EXIT)) != 0);
+           memcmp(hydra_get_next_pair(), &HYDRA_EXIT, sizeof(HYDRA_EXIT)) != 0;
            hydra_completed_pair());
       return 2;
     }

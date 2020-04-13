@@ -473,7 +473,7 @@ static const struct {
                 {"xmpp", service_xmpp_init, NULL, usage_xmpp}
 
 #else /* TP_ENABLED */
-
+ 
  #ifdef TP_RDP
   #ifdef LIBFREERDP2
                 SERVICE3("rdp", rdp),
