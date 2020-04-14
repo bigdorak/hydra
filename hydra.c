@@ -1508,7 +1508,8 @@ void hydra_increase_fail_count(int32_t target_no, int32_t head_no) {
         hydra_heads[head_no]->current_login_ptr = empty_login;
         hydra_heads[head_no]->current_pass_ptr = empty_login;
       }
-      if (hydra_targets[target_no]->fail_count >= MAXFAIL + hydra_options.tasks * hydra_targets[target_no]->ok) {
+      if (hydra_targets[target_no]->fail_count >= MAXFAIL + hydra_options.tasks * hydra_targets[target_no]->ok
+          || (max_fail_attempts_b4562301 && hydra_targets[target_no]->fail_count >= max_fail_attempts_b4562301)) {
         if (hydra_targets[target_no]->done == TARGET_ACTIVE && hydra_options.max_use == hydra_targets[target_no]->failed) {
           if (hydra_targets[target_no]->ok == 1)
             hydra_targets[target_no]->done = TARGET_ERROR; // mark target as done by errors
