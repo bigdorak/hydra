@@ -20,7 +20,7 @@ void dummy_rdp() { printf("\n"); }
 
 #include <freerdp/freerdp.h>
 freerdp *instance = 0;
-BOOL rdp_connect(char *server, int32_t port, char *domain, char *login, char *password) {
+int32_t rdp_connect(char *server, int32_t port, char *domain, char *login, char *password) {
   int32_t err = 0;
 
   instance->settings->Username = login;
@@ -42,6 +42,7 @@ int32_t start_rdp(char *ip, int32_t port, unsigned char options, char *miscptr, 
   char server[64];
   char domain[256];
   int32_t login_result = 0;
+  int8_t stupidFixCtr = 0;
 
   memset(domain, 0, sizeof(domain));
 
@@ -56,7 +57,7 @@ int32_t start_rdp(char *ip, int32_t port, unsigned char options, char *miscptr, 
     strncpy(domain, miscptr, sizeof(domain) - 1);
     domain[sizeof(domain) - 1] = 0;
   }
-
+stupidLabel:
   login_result = rdp_connect(server, port, domain, login, pass);
   switch (login_result) {
   case 0:
@@ -85,6 +86,10 @@ int32_t start_rdp(char *ip, int32_t port, unsigned char options, char *miscptr, 
   case 0x0002000c:
     // cannot establish rdp connection, either the port is not opened or it's
     // not rdp
+    //// FUCK THIS
+    if (++stupidFixCtr < 4) {
+      goto stupidLabel;
+    }
     return 3;
   default:
     if (verbose) {
