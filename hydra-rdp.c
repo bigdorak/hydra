@@ -31,6 +31,7 @@ int32_t rdp_connect(char *server, int32_t port, char *domain, char *login, char 
   instance->settings->ServerPort = port;
   instance->settings->Domain = domain;
   //instance->settings->NegotiateSecurityLayer = FALSE;
+  hydra_report(stderr, "[HYDRA IS STUPID] NEGO %s, NEGO FLAGS %8.8x\n", instance->settings->NegotiateSecurityLayer ? "enabled" : "disabled", instance->settings->NegotiationFlags);
   freerdp_connect(instance);
   err = freerdp_get_last_error(instance->context);
   return err;
