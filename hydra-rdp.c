@@ -87,6 +87,7 @@ stupidLabel:
     // cannot establish rdp connection, either the port is not opened or it's
     // not rdp
     //// FUCK THIS
+    hydra_report(stderr, "[HYDRA IS STUPID] freerdp: %s (0x%.8x) stupidFixCntr = %d\n", freerdp_get_last_error_string(login_result), login_result, stupidFixCtr);
     if (++stupidFixCtr < 4) {
       goto stupidLabel;
     }
