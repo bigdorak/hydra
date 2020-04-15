@@ -30,7 +30,7 @@ int32_t rdp_connect(char *server, int32_t port, char *domain, char *login, char 
   instance->settings->ServerHostname = server;
   instance->settings->ServerPort = port;
   instance->settings->Domain = domain;
-  instance->settings->NegotiateSecurityLayer = FALSE;
+  //instance->settings->NegotiateSecurityLayer = FALSE;
   freerdp_connect(instance);
   err = freerdp_get_last_error(instance->context);
   return err;
