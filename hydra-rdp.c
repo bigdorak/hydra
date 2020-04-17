@@ -30,13 +30,13 @@ int32_t rdp_connect(char *server, int32_t port, char *domain, char *login, char 
   instance->settings->ServerHostname = server;
   instance->settings->ServerPort = port;
   instance->settings->Domain = domain;
-  instance->settings->TlsSecurity = TRUE;
+  /* instance->settings->TlsSecurity = TRUE;
   instance->settings->NlaSecurity = FALSE;
   instance->settings->RdpSecurity = FALSE;
   instance->settings->UseRdpSecurityLayer = FALSE;
-  instance->settings->EncryptionLevel = ENCRYPTION_LEVEL_NONE;
+  instance->settings->EncryptionLevel = ENCRYPTION_LEVEL_NONE; */
   //instance->settings->NegotiateSecurityLayer = FALSE;
-  hydra_report(stderr, "[HYDRA IS STUPID] NEGO %s, TLS %s, NLA %s, RDP %s, RDPSec %s \n", instance->settings->NegotiateSecurityLayer ? "enabled" : "disabled", instance->settings->TlsSecurity ? "enabled" : "disabled", instance->settings->NlaSecurity ? "enabled" : "disabled", instance->settings->RdpSecurity ? "enabled" : "disabled", instance->settings->UseRdpSecurityLayer ? "enabled" : "disabled");
+  // hydra_report(stderr, "[HYDRA IS STUPID] NEGO %s, TLS %s, NLA %s, RDP %s, RDPSec %s \n", instance->settings->NegotiateSecurityLayer ? "enabled" : "disabled", instance->settings->TlsSecurity ? "enabled" : "disabled", instance->settings->NlaSecurity ? "enabled" : "disabled", instance->settings->RdpSecurity ? "enabled" : "disabled", instance->settings->UseRdpSecurityLayer ? "enabled" : "disabled");
   freerdp_connect(instance);
   err = freerdp_get_last_error(instance->context);
   return err;
